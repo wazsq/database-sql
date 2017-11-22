@@ -1,10 +1,10 @@
 -- 创建用户民为user_name 密码为passwd的用户
-create user user_name identified by "passwd";
+create user S5120155133 identified by "passwd";
 
 -- 设置权限
-grant "DBA" to user_name;
-grant "CONNECT" to user_name;
-alter user  user_name default role "DBA", "CONNECT";
+grant "DBA" to S5120155133;
+grant "CONNECT" to S5120155133;
+alter user  S5120155133 default role "DBA", "CONNECT";
 
 -- 删除各表（顺序不能乱，建表倒序）
 -- drop table reserve ;
