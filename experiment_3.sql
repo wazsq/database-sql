@@ -3,12 +3,14 @@ create or replace procedure p_lend_book
 	(p_borrow_item_no in varchar, p_lend_card_no in varchar,p_book_item_no in varchar)
 	as
 		v_isLend book_item.is_lend%type;
+		-- string v_islend;
 	begin
 		select is_lend into v_isLend from book_item where book_item_no = p_book_item_no;
 		if v_isLend='否' then
 			insert into borrow_item(borrow_item_no,book_item_no,lend_card_no,lend_at)
 				values(p_borrow_item_no,p_book_item_no,p_lend_card_no,to_char(sysdate,'yyyy/mm/dd'));
 			update book_item set is_lend= '是' where book_item_no = p_book_item_no;
+			commit;
 		else
 			dbms_output.put_line('该书已经被借出');
 		end if;

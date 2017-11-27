@@ -90,7 +90,7 @@ comment on column fine.penalty is '罚金';
 
 -- 借阅表
 create table borrow_item(
-	borrow_item_no varchar(10) primary key,
+	borrow_item_no number primary key,
 	lend_card_no varchar(20),
 	book_item_no varchar(10),
 	lend_at date not null,
@@ -176,15 +176,15 @@ insert into fine(fine_class_no, fine_name, penalty) values('3','丢失',50);
 
 
 insert into borrow_item(borrow_item_no, lend_card_no, book_item_no, lend_at, return_at, fine_class_no, memo) 
-	values('1','20081237','3007071',to_date('2010/09/19','yyyy/mm/dd'),to_date('2010/09/20','yyyy/mm/dd'),'','');
+	values(1,'20081237','3007071',to_date('2010/09/19','yyyy/mm/dd'),to_date('2010/09/20','yyyy/mm/dd'),'','');
 insert into borrow_item(borrow_item_no, lend_card_no, book_item_no, lend_at, return_at, fine_class_no, memo) 
-	values('2','20071235','1005063',to_date('2010/10/20','yyyy/mm/dd'),to_date('2011/02/20','yyyy/mm/dd'),'1','');
+	values(2,'20071235','1005063',to_date('2010/10/20','yyyy/mm/dd'),to_date('2011/02/20','yyyy/mm/dd'),'1','');
 insert into borrow_item(borrow_item_no, lend_card_no, book_item_no, lend_at, return_at, fine_class_no, memo) 
-	values('3','20071235','2001232',to_date('2011/09/01','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
+	values(3,'20071235','2001232',to_date('2011/09/01','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
 insert into borrow_item(borrow_item_no, lend_card_no, book_item_no, lend_at, return_at, fine_class_no, memo) 
-	values('4','20061234','1005063',to_date('2011/9/20','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
+	values(4,'20061234','1005063',to_date('2011/9/20','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
 insert into borrow_item(borrow_item_no, lend_card_no, book_item_no, lend_at, return_at, fine_class_no, memo) 
-	values('5','20051001','3007071',to_date('2011/9/10','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
+	values(5,'20051001','3007071',to_date('2011/9/10','yyyy/mm/dd'),to_date('','yyyy/mm/dd'),'','');
 
 insert into reserve(reserve_no,lend_card_no, ISBN,reserve_at)
 	values('1','20081237','9787508040110',to_date('2011/09/11','yyyy/mm/dd'));
