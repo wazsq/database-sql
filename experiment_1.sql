@@ -1,12 +1,12 @@
 -- 创建用户民为user_name 密码为passwd的用户
-create user S5120155133 identified by "passwd";
+create user S5120155133 identified by "sce19970228";
 
 -- 设置权限
 grant "DBA" to S5120155133;
 grant "CONNECT" to S5120155133;
 alter user  S5120155133 default role "DBA", "CONNECT";
 
--- 删除各表（顺序不能乱，建表倒序）
+-- -- 删除各表（顺序不能乱，建表倒序）
 -- drop table reserve ;
 -- drop table borrow_item;
 -- drop table fine;
@@ -161,7 +161,7 @@ insert into bibliography(ISBN, book_name, book_author, book_publish_unit, book_p
 insert into book_item(book_item_no,ISBN,is_lend,memo) values('2001231','7040195836','否','');
 insert into book_item(book_item_no,ISBN,is_lend,memo) values('2001232','7040195836','是','');
 insert into book_item(book_item_no,ISBN,is_lend,memo) values('1005050','9787506336239','否','');
-insert into book_item(book_item_no,ISBN,is_lend,memo) values('1005063','9787508040110','是','');
+insert into book_item(book_item_no,ISBN,is_lend,memo) values('1005063','9787508040110','否','');
 insert into book_item(book_item_no,ISBN,is_lend,memo) values('3007071','9787010073750','是','');
 
 insert into reader(lend_card_no, name, unit, sex, adress, phone_no, id_card) values('20051001','王菲','四川绵阳西科大计算机学院','女','','18281111111','53030219990711094X');

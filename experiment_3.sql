@@ -1,6 +1,6 @@
 -- 建立存储过程完成图书管理系统中的借书功能，并调用该存储过程实现借书功能。
 create or replace procedure p_lend_book
-	(p_borrow_item_no in varchar, p_lend_card_no in varchar,p_book_item_no in varchar)
+	(p_borrow_item_no in number, p_lend_card_no in varchar,p_book_item_no in varchar)
 	as
 		v_isLend book_item.is_lend%type;
 		-- string v_islend;
@@ -18,7 +18,7 @@ create or replace procedure p_lend_book
 
 
 -- begin
--- 	p_lend_book('7','20051001','2001231');
+-- call	p_lend_book('7','20051001','2001231');
 -- 	commit;
 -- end;
 

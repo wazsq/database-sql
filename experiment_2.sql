@@ -10,7 +10,7 @@ select * from bibliography,book_item
 select * from bibliography where book_publish_unit = '高等教育出版社' order by book_price desc;
 
 -- 、统计“红楼梦”各版的藏书数量（ISBN不同则版本不同）。
-select count(ISBN),* from bibliography where  book_name = '红楼梦' group by ISBN;
+select count(ISBN),ISBN from bibliography where  book_name = '红楼梦' group by ISBN;
 
 -- 查询学号“20061234”号借书证借阅未还的图书的信息
 select book_item.book_item_no,bibliography.* from borrow_item,book_item ,bibliography
@@ -32,7 +32,7 @@ select * from reader
 		);
 
 -- 查询“王菲”的单位、所借图书的书名和借阅日期。
-select reader.unit, bibliography.book_name, borrow_item.lend_at from reader, borrow_item,book_item, bibliography
+select reader.name,reader.unit, bibliography.book_name, borrow_item.lend_at from reader, borrow_item,book_item, bibliography
 	where 
 		reader.name = '王菲' and
 		borrow_item.lend_card_no = reader.lend_card_no and
@@ -40,8 +40,8 @@ select reader.unit, bibliography.book_name, borrow_item.lend_at from reader, bor
 		bibliography.ISBN = book_item.ISBN;
 
 -- 查询每类图书的册数和平均单价。
-select count(*), avg(book_price) from bibliography
-	order by class_no;
+select class_no,count(*), avg(book_price) from bibliography
+	group by class_no;
 
 -- 统计从未借书的读者人数
 select count(*) from reader 
